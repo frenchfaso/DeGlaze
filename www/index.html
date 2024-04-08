@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="icon.svg">
+    <link rel="manifest" href="manifest.json">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css"
+        integrity="sha512-xiunq9hpKsIcz42zt0o2vCo34xV0j6Ny8hgEylN3XBglZDtTZ2nwnqF/Z/TTCc18sGdvCjbFInNd++6q3J0N6g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>DeGlaze</title>
+    <style>
+        body {
+            padding: 5%;
+        }
+
+        .centered-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .content {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centered-container">
+        <div class="content">
+            <h1>🧊</h1>
+            <h2>DeGlaze</h2>
+            <label for="netWeight">Desired Net Weight:</label>
+            <input type="number" id="netWeight" name="netWeight" onchange="deglaze()">
+            <br>
+            <label for="glazePercent">Glaze %:</label>
+            <input type="number" id="glazePercent" name="glazePercent" onchange="deglaze()">
+            <br>
+            <div id="output">
+                <label for="grossWeight">Gross Weight:</label>
+                <h3 id="grossWeight"></h3>
+            </div>
+            <button onclick="deglaze()">DeGlaze</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    function deglaze() {
+        var netWeight = document.getElementById('netWeight').value;
+        var glazePercent = document.getElementById('glazePercent').value;
+        var grossWeight = netWeight / (1 - glazePercent / 100);
+        document.getElementById('grossWeight').textContent = Math.round(grossWeight);
+    }
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('service-worker.js').then(function (registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function (err) {
+                // Registration failed
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+
+</script>
+</body>
+
+</html>
