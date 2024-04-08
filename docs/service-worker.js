@@ -1,12 +1,13 @@
 // Define the cache name with a version
-const CACHE_NAME = 'DeGlaze-v3';
+const CACHE_NAME = 'DeGlaze-v4';
 // List of URLs to cache
 const URLS_TO_CACHE = [
-    '/',
-    '/manifest.json',
-    '/index.html',
-    '/milligram.min.css',
-    '/icon.svg',
+    "https://frenchfaso.github.io/DeGlaze/",
+    "https://frenchfaso.github.io/DeGlaze/manifest.json",
+    "https://frenchfaso.github.io/DeGlaze/index.html",
+    "https://frenchfaso.github.io/DeGlaze/milligram.min.css",
+    "https://frenchfaso.github.io/DeGlaze/icon.svg",
+    "https://frenchfaso.github.io/DeGlaze"
 ];
 
 // Listen for the 'install' event and cache the assets
