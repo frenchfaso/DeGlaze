@@ -1,5 +1,5 @@
 // Define the cache name with a version
-const CACHE_NAME = 'DeGlaze-v2';
+const CACHE_NAME = 'DeGlaze-v3';
 // List of URLs to cache
 const URLS_TO_CACHE = [
     '/',
