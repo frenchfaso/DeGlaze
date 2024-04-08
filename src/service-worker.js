@@ -1,9 +1,9 @@
 const CACHE_NAME = 'v1';
 const URLS_TO_CACHE = [
     '/',
-    '/index.html',
-    '/manifest.json',
-    '/icon.svg',
+    'index.html',
+    'manifest.json',
+    'icon.svg',
     'https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css'
 ];
 self.addEventListener('install', (e) => {
