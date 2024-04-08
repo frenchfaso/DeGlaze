@@ -12,7 +12,7 @@ file_paths = [
 ]
 
 # Destination folder path
-destination_folder = Path('../www/')
+destination_folder = Path('../docs/')
 
 # Ensure the destination folder exists
 destination_folder.mkdir(parents=True, exist_ok=True)
