@@ -8,7 +8,8 @@ file_paths = [
     Path('manifest.json'), 
     Path('index.html'), 
     Path('service-worker.js'),
-    Path('icon.svg')
+    Path('icon.svg'),
+    Path('milligram.min.css')
 ]
 
 # Destination folder path
