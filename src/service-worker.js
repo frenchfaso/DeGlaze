@@ -1,5 +1,5 @@
 // Define the cache name with a version
-const CACHE_NAME = 'DeGlaze-v1';
+const CACHE_NAME = 'DeGlaze-v2';
 // List of URLs to cache
 const URLS_TO_CACHE = [
     '/',
@@ -38,9 +38,17 @@ self.addEventListener('activate', (event) => {
 // Intercept fetch events and respond with cached content when available
 self.addEventListener('fetch', (e) => {
     e.respondWith(
-        caches.match(e.request).then((response) => {
-            // Return the cached response if found, otherwise fetch from the network
-            return response || fetch(e.request);
-        })
+        caches.match(e.request)
+            .then((response) => {
+                // Return the cached response if found
+                return response || fetch(e.request).then((fetchResponse) => {
+                    // Optionally cache new fetched responses dynamically
+                    return caches.open(CACHE_NAME).then((cache) => {
+                        cache.put(e.request, fetchResponse.clone());
+                        return fetchResponse;
+                    });
+                });
+            })
     );
 });
+
