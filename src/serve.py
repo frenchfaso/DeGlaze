@@ -8,4 +8,4 @@ server = Server()
 server.watch('.', shell('echo "Changes detected"'))
 
 # Optionally, you can specify a port. Default is 35729
-server.serve(port=8000, root='.')
+server.serve(host='0.0.0.0', port=8000, root='.')
