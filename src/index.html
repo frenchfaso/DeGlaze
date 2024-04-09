@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="DeGlaze, the Frozen Goods Calculator, a fun and simple WebApp to calculate the right gross weight.">
+    <meta name="theme-color" content="#007bff">
     <link rel="icon" href="./icon.svg">
     <link rel="manifest" href="./manifest.json">
     <link rel="stylesheet" href="./milligram.min.css" />
@@ -29,31 +32,27 @@
 <body>
     <div class="centered-container">
         <div class="content">
-            <img src="./icon.svg" />
+            <img src="./icon.svg" alt="DeGlaze icon, a cute ice-cube" />
             <h1>DeGlaze</h1>
-            <label for="netWeight">Desired Net Weight:</label>
-            <input type="number" id="netWeight" name="netWeight" onchange="deglaze()">
-            <br>
-            <label for="glazePercent">Glaze %:</label>
-            <input type="number" id="glazePercent" name="glazePercent" onchange="deglaze()">
-            <br>
-            <div id="output">
-                <label for="grossWeight">Gross Weight:</label>
-                <h3 id="grossWeight"></h3>
-            </div>
-            <button onclick="deglaze()">DeGlaze</button>
+            <h4>Frozen Goods Calculator</h4>
+            <form id="mainForm">
+                <label for="netWeight">Desired Net Weight:</label>
+                <input type="number" id="netWeight" name="netWeight" onchange="deglaze()">
+                <br>
+                <label for="glazePercent">Glaze %:</label>
+                <input type="number" id="glazePercent" name="glazePercent" onchange="deglaze()">
+                <br>
+                <div id="output">
+                    <label for="grossWeight">Gross Weight:</label>
+                    <h3 id="grossWeight">0</h3>
+                </div>
+                <button type="submit">DeGlaze</button>
+            </form>
         </div>
     </div>
 </body>
 
 <script>
-    function deglaze() {
-        var netWeight = document.getElementById('netWeight').value;
-        var glazePercent = document.getElementById('glazePercent').value;
-        var grossWeight = netWeight / (1 - glazePercent / 100);
-        document.getElementById('grossWeight').textContent = Math.round(grossWeight);
-    }
-
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function () {
             navigator.serviceWorker.register('service-worker.js').then(function (registration) {
@@ -68,6 +67,18 @@
         console.log('ServiceWorker not available.');
     }
 
+    function deglaze() {
+        var netWeight = document.getElementById('netWeight').value;
+        var glazePercent = document.getElementById('glazePercent').value;
+        var grossWeight = netWeight / (1 - glazePercent / 100);
+        document.getElementById('grossWeight').textContent = Math.round(grossWeight);
+        console.log("DeGlazed!");
+    }
+
+    document.getElementById('mainForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        deglaze();
+    });
 </script>
 </body>
 
