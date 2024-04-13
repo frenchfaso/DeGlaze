@@ -1,4 +1,5 @@
-# DeGlaze 🧊
+![DeGlaze Icon, a cute ice-cube](./src/icons/icon-96x96.png)
+# DeGlaze
 
 Dive into DeGlaze, where we make frozen math fun! 🍦🍤  
 Got frozen goodies?  
