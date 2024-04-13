@@ -32,7 +32,7 @@
 <body>
     <div class="centered-container">
         <div class="content">
-            <img src="./icon.svg" alt="DeGlaze icon, a cute ice-cube" style="width: 33%"/>
+            <img src="./icon.svg" alt="DeGlaze icon, a cute ice-cube" style="width: 33%" />
             <h1>DeGlaze</h1>
             <h4>Frozen Goods Calculator</h4>
             <form id="mainForm">
@@ -50,36 +50,7 @@
             </form>
         </div>
     </div>
-</body>
-
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function () {
-            navigator.serviceWorker.register('service-worker.js').then(function (registration) {
-                // Registration was successful
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }, function (err) {
-                // Registration failed
-                console.log('ServiceWorker registration failed: ', err);
-            });
-        });
-    } else {
-        console.log('ServiceWorker not available.');
-    }
-
-    function deglaze() {
-        var netWeight = document.getElementById('netWeight').value;
-        var glazePercent = document.getElementById('glazePercent').value;
-        var grossWeight = netWeight / (1 - glazePercent / 100);
-        document.getElementById('grossWeight').textContent = Math.round(grossWeight);
-        console.log("DeGlazed!");
-    }
-
-    document.getElementById('mainForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-        deglaze();
-    });
-</script>
+    <script src="app.js" type="module" defer></script>
 </body>
 
 </html>
