@@ -12,19 +12,30 @@
     <link rel="stylesheet" href="./milligram.min.css" />
     <title>DeGlaze</title>
     <style>
+        html,
         body {
-            padding: 5%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            text-align: center;
         }
 
         .centered-container {
+            flex: 0 0 auto;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100%;
+            align-items: start;
+            width: 100%;
+            padding: 5%;
         }
 
-        .content {
+        .about {
             text-align: center;
+            width: 100%;
+            margin-top: auto;
+            padding: 5%;
         }
     </style>
 </head>
@@ -37,18 +48,25 @@
             <h4>Frozen Goods Calculator</h4>
             <form id="mainForm">
                 <label for="netWeight">Desired Net Weight:</label>
-                <input type="number" id="netWeight" name="netWeight" onchange="deglaze()">
+                <input type="number" id="netWeight" name="netWeight">
                 <br>
                 <label for="glazePercent">Glaze %:</label>
-                <input type="number" id="glazePercent" name="glazePercent" onchange="deglaze()">
+                <input type="number" id="glazePercent" name="glazePercent">
                 <br>
                 <div id="output">
-                    <label for="grossWeight">Gross Weight:</label>
-                    <h3 id="grossWeight">0</h3>
+                    <h6 style="font-weight: bold;">Gross Weight:</h6>
+                    <h2 id="grossWeight">0</h2>
                 </div>
                 <button type="submit">DeGlaze</button>
             </form>
         </div>
+    </div>
+    <div class="about">
+        <h6>
+            <span id="version"></span>
+            <br>
+            <span>made with ❤️ by <a href="https://www.github.com/frenchfaso">Frenchfaso</a></span>
+        </h6>
     </div>
     <script src="app.js" type="module" defer></script>
 </body>
