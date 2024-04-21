@@ -7,7 +7,8 @@ import re
 # List of file paths you want to copy
 file_paths = [
     Path('manifest.json'), 
-    Path('index.html'), 
+    Path('index.html'),
+    Path('app.js'), 
     Path('service-worker.js'),
     Path('icon.svg'),
     Path('milligram.min.css')
